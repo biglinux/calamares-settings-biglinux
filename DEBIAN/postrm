@@ -1,0 +1,12 @@
+#!/bin/sh
+set -e
+package_name=calamares-settings-biglinux
+case "$1" in
+  remove)
+    dpkg-divert --package "$package_name" --rename --remove "/usr/bin/calamares"
+    ;;
+  purge)
+    dpkg-divert --package "$package_name" --rename --remove "/usr/bin/calamares"
+;;
+esac
+exit 0

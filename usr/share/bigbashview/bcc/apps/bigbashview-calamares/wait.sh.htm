@@ -1,0 +1,58 @@
+#!/bin/bash
+
+#Translation
+export TEXTDOMAINDIR="/usr/share/locale"
+export TEXTDOMAIN=bigbashview-calamares
+
+# Import BigControlCenter base modules / Importa os módulos básicos do BigControlCenter
+
+
+touch /tmp/biglinux-wait-install
+
+cp -f /etc/calamares/modules/partition.conf /etc/calamares/modules/partition.conf-bkp
+cp -f /etc/calamares/modules/packages.conf /etc/calamares/modules/packages.conf-bkp
+
+
+OIFS=$IFS
+IFS=$'\n'
+
+
+if [ "$p_btrfs" = "y" ]; then
+   sed -i 's|ext4|btrfs|g' /etc/calamares/modules/partition.conf
+   else
+   sed -i 's|btrfs|ext4|g' /etc/calamares/modules/partition.conf
+fi
+
+
+if [ "$p_xanmod" != "y" ]; then
+    for i  in  $(dpkg-query -W --showformat='${Package}\n' | grep xanmod | grep -v xanmod-repository); do
+
+        echo "      - '$i'" >> /etc/calamares/modules/packages.conf
+
+    done
+fi
+
+
+if [ "$p_debian" != "y" ]; then
+    for i  in  $(dpkg-query -W --showformat='${Package}\n' | grep -e linux.*amd64 -e linux.*common); do
+
+        echo "      - '$i'" >> /etc/calamares/modules/packages.conf
+
+    done
+fi
+
+if [ "$(ls /sys/firmware/efi/efivars/ | grep SecureBoot)" = "" ]; then
+    echo "      - 'grub-efi-amd64-signed'" >> /etc/calamares/modules/packages.conf
+    echo "      - 'shim-signed'" >> /etc/calamares/modules/packages.conf
+    echo "      - 'shim'" >> /etc/calamares/modules/packages.conf
+    sed -i 's|  - bootloader-fix|#  - bootloader-fix|g' /etc/calamares/settings.conf
+fi
+
+
+IFS=$OIFS
+
+
+echo '
+<body onload=window.location="/usr/share/bigbashview/close.sh">
+'
+

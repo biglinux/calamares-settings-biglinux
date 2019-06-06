@@ -1,0 +1,16 @@
+#!/bin/sh
+set -e
+package_name=calamares-settings-biglinux
+
+case "$1" in
+  install)
+    dpkg-divert --package "$package_name" --divert "/usr/bin/calamares.distrib" --rename "/usr/bin/calamares"
+    ;;
+  upgrade)
+if [ "$(dpkg-divert --list "/usr/bin/calamares")" = "" ]
+then
+    dpkg-divert --package "$package_name" --divert "/usr/bin/calamares.distrib" --rename "/usr/bin/calamares"
+fi
+;;
+esac
+exit 0

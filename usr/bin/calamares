@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if [ "$(ps -e | grep calamares.distrib)" != "" ]; then
+    echo "Calamares is running, exit!"
+    exit 0
+fi
+
+
+bigbashview /usr/share/bigbashview/bcc/apps/bigbashview-calamares/index.sh.htm -s 850x600 -i /usr/share/bigbashview/bcc/apps/bigbashview-calamares/icon.png
+
+if [ -e "/tmp/biglinux-wait-install" ]; then
+
+    calamares.distrib
+
+fi
+

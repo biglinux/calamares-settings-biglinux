@@ -1,0 +1,126 @@
+#!/bin/bash
+
+
+
+rm -f /tmp/biglinux-wait-install
+
+
+
+#Translation
+export TEXTDOMAINDIR="/usr/share/locale"
+export TEXTDOMAIN=bigbashview-calamares
+
+# Import BigControlCenter base modules / Importa os módulos básicos do BigControlCenter
+# That's include jquery and materialize / Isso inclui o jquery e o materialize
+# http://materializecss.com/
+. /usr/share/bigbashview/bcc/shell/base.sh
+
+#Title/Description variables
+bcc_title="Instalar no HD"
+bcc_description=$"Torne este sistema permanente em seu computador."
+# To disable logo use: bcc_logo="no"
+bcc_logo="biglinux-logo.png"
+
+# About variables
+# To disable about use: bcc_about="no"
+bcc_about="yes"
+bcc_about_license=$"GPL v2 or greater"
+bcc_about_by=$"Bruno Gonçalves"
+bcc_about_release_date=$"24/03/2019"
+bcc_about_url_code=$"https://github.com/biglinux/bigbashview-calamares"
+bcc_about_url_project=$"https://www.biglinux.com.br"
+
+tooltip_btrfs=$"A partição btrfs trás diversas melhorias para o sistema, mas é incompatível com alguns computadores, desmarque essa opção para utilizar por padrão a partição no formato ext4, ou nos passos à seguir utilize o particionamento manual para efetuar sua configuração personalizada."
+
+tooltop_xanmod=$"Recomendado para a maioria das situações."
+
+tooltip_debian=$"Este kernel é mais recomendado para sistemas com placas de vídeo nvidia que necessitam do driver legacy ou que tenham alguma incompatibilidade com o kernel Xanmod."
+
+
+cp -f /etc/calamares/modules/partition.conf-bkp /etc/calamares/modules/partition.conf
+cp -f /etc/calamares/modules/packages.conf-bkp /etc/calamares/modules/packages.conf
+
+
+if [ -e "/etc/calamares/modules/partition.conf-bkp" ]; then
+    cp -f /etc/calamares/modules/partition.conf-bkp /etc/calamares/modules/partition.conf
+    cp -f /etc/calamares/modules/packages.conf-bkp /etc/calamares/modules/packages.conf
+fi
+
+
+
+
+# Print header in screen
+bcc_header
+
+# Import tweaks for themev
+echo '<link rel="stylesheet" type="text/css" href="theme.css">'
+
+###############
+# Start Content
+
+
+xanmodVersion="$(ls /boot/vmlinuz-*xanmod* | sed 's|.*vmlinuz-||g')"
+debianVersion="$(ls /boot/vmlinuz-*amd64* | sed 's|.*vmlinuz-||g;s|amd64|debian|g')"
+
+if [ "$(uname -r | grep xanmod)" != "" ]; then
+    xanmodCheked=checked
+    kernel=Xanmod
+    versionRunning="$xanmodVersion"
+    versionAnother="$debianVersion"
+else
+    debianChecked=checked
+    versionRunning="$debianVersion"
+    versionAnother="$xanmodVersion"
+fi
+
+echo '<font color=red size=+1>' $"Antes de prosseguir com a instalação, verifique as opções a seguir, caso esteja com dúvidas sobre o que escolher, apenas pressione próximo, pois é a melhor opção para a maioria das situações!" '<p></font>'
+
+echo '<form action="wait.sh.htm">'
+
+
+
+
+echo '
+        <div class="input-field col s6">
+      <input name="btrfs" type="checkbox" id="btrfs" value="y"' "checked" '/>
+      <label for="btrfs" class="black-text tooltipped" data-position="top" data-delay="50" data-tooltip="'" $tooltip_btrfs "'">' $"Utilizar partição btrfs" '</label>
+    </div>
+    <div class="input-field col s6">
+      <input name="xanmod" type="checkbox" id="xanmod" value="y"' "$xanmodCheked" '/>
+      <label for="xanmod" class="black-text tooltipped" data-position="top" data-delay="50" data-tooltip="'" $tooltop_xanmod "'">' $"Instalar com o Kernel Xanmod" '</label>
+    </div>
+    <div class="input-field col s6">
+      <input name="debian" type="checkbox" id="debian" value="y"' "$debianChecked" '/>
+      <label for="debian" class="black-text tooltipped" data-position="top" data-delay="50" data-tooltip="'" $tooltip_debian "'">' $"Instalar com o Kernel Debian" '</label>
+    </div>
+
+'
+
+
+
+
+
+
+echo '<br><br><br><br><br><br><br><br><br>' $"* O kernel em uso no momento é o $versionRunning e o kernel alternativo é o $versionAnother."
+
+
+###################
+# Close content div
+echo '</div></div>'
+
+
+
+##############
+# Start footer
+  echo '<div id="bcc_footer">'
+        echo '<div id="bcc_footer_right">'
+          echo '<a href="/usr/share/bigbashview/close.sh" class="waves-effect waves-light btn blue-grey"><img src=cancel.png>'$"Cancelar"'</a>'
+          echo '<button type="submit" class="btn waves-effect waves-light blue-grey" name="action"><img src=ok.png>'$"Próximo"'</button>'
+        echo '</div>'
+  echo '</div>'
+echo '</form>'
+
+
+#########
+# The end
+echo '</body>'
