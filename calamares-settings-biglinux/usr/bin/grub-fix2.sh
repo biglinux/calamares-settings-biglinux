@@ -1,7 +1,5 @@
 #!/bin/bash
 
-#secure boot
-if [ "$(ls /sys/firmware/efi/efivars/ | grep SecureBoot)" != "" ]; then
 
 mkdir -p "$1/EFI/ubuntu"
 mkdir -p "$1/EFI/biglinux-shim"
@@ -33,7 +31,13 @@ partition="$(findmnt -n -o SOURCE --target $1)"
 device="$(echo "$partition" | sed 's|[0-9]||g')"
 num_device="$(echo "$partition" | sed 's|.*[a-z]||g')"
 
-efibootmgr -c -d $device -p $num_device -L "ubuntu" -l "/EFI/ubuntu/grubx64.efi"
-efibootmgr -c -d $device -p $num_device -L "biglinux-shim" -l "/EFI/biglinux-shim/shimx64.efi"
 
+if [ "$(find /sys/firmware/efi/efivars/ -name SecureBoot-*)" != "" ]; then
+    efibootmgr -c -d $device -p $num_device -L "biglinux-shim" -l "/EFI/biglinux-shim/shimx64.efi"
 fi
+efibootmgr -c -d $device -p $num_device -L "ubuntu" -l "/EFI/ubuntu/grubx64.efi"
+efibootmgr -c -d $device -p $num_device -L "BigLinux" -l "/EFI/BigLinux/grubx64.efi"
+
+
+
+

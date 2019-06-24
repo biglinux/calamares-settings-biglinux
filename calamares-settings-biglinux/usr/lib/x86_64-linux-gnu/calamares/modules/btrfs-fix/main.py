@@ -39,8 +39,8 @@ def run():
     :return:
     """
     root_mount_point = libcalamares.globalstorage.value("rootMountPoint")
-    subprocess.call(["grub-fix2.sh", root_mount_point + '/boot/efi' ])
-    subprocess.call(["umount", root_mount_point + '/boot/efi'])
+    subprocess.call(["grub-fix2.sh", root_mount_point + '/boot/EFI' ])
+    subprocess.call(["umount", root_mount_point + '/boot/EFI'])
     subprocess.call(["btrfs", "filesystem", "defragment", "-r", root_mount_point + '/boot'])
     subprocess.call(["mkdir", root_mount_point + '/boot2'])
     subprocess.call(["btrfs", "property", "set", root_mount_point + '/boot2/', "compression", "lzo"])
