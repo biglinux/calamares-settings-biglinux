@@ -10,6 +10,8 @@ bigbashview /usr/share/bigbashview/bcc/apps/bigbashview-calamares/index.sh.htm -
 
 if [ -e "/tmp/biglinux-wait-install" ]; then
 
+    umount /dev/sd*
+    swapoff /dev/sd*
     calamares.distrib
 
 fi
