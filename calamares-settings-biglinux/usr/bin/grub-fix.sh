@@ -7,8 +7,6 @@ echo 'GRUB_THEME=/boot/grub/themes/biglinux/theme.txt' >>  $*
 
 #Change default desktop in sddm to use in livecd
 echo "[Last]
-Session=$(cat /tmp/big_desktop_changed | sed 's|.*/||g')
-
-User=*" > $(echo "$*" | sed 's|etc/default/grub|var/lib/sddm/state.conf|g')
+Session=$(cat /tmp/big_desktop_changed | sed 's|.*/||g')" >> $(echo "$*" | sed 's|etc/default/grub|var/lib/sddm/state.conf|g')
 
 cp -f /tmp/big_desktop_theme $(echo "$*" | sed 's|etc/default/grub|etc/default-theme-biglinux|g')
