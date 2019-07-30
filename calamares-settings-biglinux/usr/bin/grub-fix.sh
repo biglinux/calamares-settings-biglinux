@@ -8,6 +8,9 @@ echo 'GRUB_RECORDFAIL_TIMEOUT="$GRUB_TIMEOUT"' >>  $*
 
 sed -i 's|GRUB_TIMEOUT=.*|GRUB_TIMEOUT="5"|g' $*
 
+sed -i 's|#GRUB_DISABLE_RECOVERY="true"|GRUB_DISABLE_RECOVERY="true"|g' $*
+
+
 #Change default desktop in sddm to use in livecd
 echo "[Last]
 Session=$(cat /tmp/big_desktop_changed | sed 's|.*/||g')" >> $(echo "$*" | sed 's|etc/default/grub|var/lib/sddm/state.conf|g')
