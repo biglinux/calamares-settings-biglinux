@@ -4,6 +4,9 @@ sed -i "s|GRUB_CMDLINE_LINUX_DEFAULT=\"|GRUB_CMDLINE_LINUX_DEFAULT=\"$(cat /proc
 
 echo 'GRUB_THEME=/boot/grub/themes/biglinux/theme.txt' >>  $*
 
+echo 'GRUB_RECORDFAIL_TIMEOUT="$GRUB_TIMEOUT"' >>  $*
+
+sed -i 's|GRUB_TIMEOUT=.*|GRUB_TIMEOUT="5"|g' $*
 
 #Change default desktop in sddm to use in livecd
 echo "[Last]
