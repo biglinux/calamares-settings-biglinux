@@ -2,7 +2,7 @@ Package: calamares-settings-biglinux
 Version: 10.0.17-9
 Architecture: all
 Maintainer: Bruno Goncalves <biglinux.com.br>
-Installed-Size:7412
+Installed-Size:7408
 Depends: calamares, cryptsetup, keyutils, qml-module-qtquick-window2, qml-module-qtquick2, rsync, console-setup
 Conflicts: calamares-settings-debian
 Replaces: calamares-settings-debian

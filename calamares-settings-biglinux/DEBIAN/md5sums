@@ -5,11 +5,10 @@ fa5ebcc45c264528e57dea5e170e0b9b  DEBIAN/preinst
 f33ed222c53849832896769342b9bdca  DEBIAN/postrm
 4edec0c5a7f36ef8cb6def0193915f0f  DEBIAN/languages
 f60f3341e339cd1ddf2883cb09b7919f  DEBIAN/pt.po
-f60f3341e339cd1ddf2883cb09b7919f  DEBIAN/es.po
 ba6727a425cdd42912db9e831bb1e6f8  DEBIAN/calamares-settings-biglinux.pot
-abb24a89b06cf94d24be20c70b066599  DEBIAN/control
 eb75d9b5d0a4d0d5b1963d837d7c2c50  DEBIAN/en.po
-c897faa670e85073659332ea295bad98  DEBIAN/en.mo
+1c247dcf016ebe2831e804fbaff2821f  DEBIAN/control
+5eac474a6542c23abc15c21fdbe7e717  DEBIAN/es.po
 dad35515f932723e18a7d4e06c09dd82  etc/calamares/branding/biglinux/biglinux-logo.png
 d2dc8743be54405ca1aa62b92047b09f  etc/calamares/branding/biglinux/branding.desc
 000ab826ba254f5d13f9c7aca8aa1804  etc/calamares/branding/biglinux/show.qml
@@ -68,5 +67,5 @@ ecce6aeea42415861020acc04f1151f8  usr/share/efi/biglinux-shim/fbx64.efi
 1b9ed45707919fd20388b658df13698c  usr/share/efi/ubuntu/mmx64.efi
 ecce6aeea42415861020acc04f1151f8  usr/share/efi/ubuntu/fbx64.efi
 aef39dba96187b3f6105022c596966dd  usr/share/locale/pt/LC_MESSAGES/calamares-settings-biglinux.mo
-aef39dba96187b3f6105022c596966dd  usr/share/locale/es/LC_MESSAGES/calamares-settings-biglinux.mo
+0ddcc9b6f76a7def8fbb9b121b738f3a  usr/share/locale/es/LC_MESSAGES/calamares-settings-biglinux.mo
 c897faa670e85073659332ea295bad98  usr/share/locale/en/LC_MESSAGES/calamares-settings-biglinux.mo
