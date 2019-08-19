@@ -3,7 +3,7 @@ d41d8cd98f00b204e9800998ecf8427e  DEBIAN/md5sums
 21a3af4bb523177cb5ae0c8ab4f85109  DEBIAN/dpkg-divert
 fa5ebcc45c264528e57dea5e170e0b9b  DEBIAN/preinst
 f33ed222c53849832896769342b9bdca  DEBIAN/postrm
-d356a4488d4eda2100a18535e1e4effe  DEBIAN/control
+cf541fcecfdea9703dd60c7410061f9d  DEBIAN/control
 dad35515f932723e18a7d4e06c09dd82  etc/calamares/branding/biglinux/biglinux-logo.png
 d2dc8743be54405ca1aa62b92047b09f  etc/calamares/branding/biglinux/branding.desc
 000ab826ba254f5d13f9c7aca8aa1804  etc/calamares/branding/biglinux/show.qml
@@ -20,7 +20,8 @@ c34d4a3f82e404062cb5138c8926fb49  etc/calamares/modules/mount.conf
 76036c620984cbb74953d81f840b4660  etc/calamares/modules/locale.conf
 eaf91a6fed3ffea6c7823d6486a8ab31  etc/calamares/modules/packages.conf
 ae7f561bd1a5b417b2c09051f203bdfc  etc/calamares/modules/partition.conf
-0346192c6b04875da777df615e89e806  etc/calamares/settings.conf
+45bc18ea7d1b217a5c7bb82218662612  etc/calamares/modules/displaymanager.conf
+15f41a78a0654d1380ab3da5bd56108d  etc/calamares/settings.conf
 57cd0edd59dbf306d3065fa844e7cd73  usr/bin/install-debian
 a433b0337e8947609fccd93ece8ded5d  usr/bin/calamares
 c3be32fb5661841b9a2e8571ecf99fbb  usr/bin/grub-fix2.sh
