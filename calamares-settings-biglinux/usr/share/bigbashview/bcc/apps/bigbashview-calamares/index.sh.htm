@@ -1,14 +1,12 @@
 #!/bin/bash
 
-
-
 rm -f /tmp/biglinux-wait-install
 
 
 
 #Translation
 export TEXTDOMAINDIR="/usr/share/locale"
-export TEXTDOMAIN=bigbashview-calamares
+export TEXTDOMAIN=calamares-settings-biglinux
 
 # Import BigControlCenter base modules / Importa os módulos básicos do BigControlCenter
 # That's include jquery and materialize / Isso inclui o jquery e o materialize
@@ -16,7 +14,7 @@ export TEXTDOMAIN=bigbashview-calamares
 . /usr/share/bigbashview/bcc/shell/base.sh
 
 #Title/Description variables
-bcc_title="Instalar no HD"
+bcc_title=$"Instalar no HD"
 bcc_description=$"Torne este sistema permanente em seu computador."
 # To disable logo use: bcc_logo="no"
 bcc_logo="biglinux-logo.png"
@@ -27,7 +25,7 @@ bcc_about="yes"
 bcc_about_license=$"GPL v2 or greater"
 bcc_about_by=$"Bruno Gonçalves"
 bcc_about_release_date=$"24/03/2019"
-bcc_about_url_code=$"https://github.com/biglinux/bigbashview-calamares"
+bcc_about_url_code=$"https://github.com/biglinux/calamares-settings-biglinux"
 bcc_about_url_project=$"https://www.biglinux.com.br"
 
 tooltip_btrfs=$"A partição btrfs trás diversas melhorias para o sistema, mas é incompatível com alguns computadores, desmarque essa opção para utilizar por padrão a partição no formato ext4, ou nos passos à seguir utilize o particionamento manual para efetuar sua configuração personalizada."

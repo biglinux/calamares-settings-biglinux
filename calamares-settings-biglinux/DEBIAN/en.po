@@ -1,0 +1,93 @@
+# Portuguese translations for calamares-settings-biglinux package.
+# Copyright (C) 2019 THE calamares-settings-biglinux'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the calamares-settings-biglinux package.
+# Automatically generated, 2019.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: calamares-settings-biglinux\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-08-19 02:58-0300\n"
+"PO-Revision-Date: 2019-08-19 03:01-0300\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.2.1\n"
+
+msgid "Instalar no HD"
+msgstr "Install System"
+
+msgid "Torne este sistema permanente em seu computador."
+msgstr "Make it permanent on your computer."
+
+msgid "GPL v2 or greater"
+msgstr ""
+
+msgid "Bruno Gonçalves"
+msgstr "By Bruno Gonçalves"
+
+msgid "24/03/2019"
+msgstr ""
+
+msgid "https://github.com/biglinux/bigbashview-calamares"
+msgstr ""
+
+msgid "https://www.biglinux.com.br"
+msgstr "https://www.biglinux.com.br"
+
+msgid ""
+"A partição btrfs trás diversas melhorias para o sistema, mas é incompatível "
+"com alguns computadores, desmarque essa opção para utilizar por padrão a "
+"partição no formato ext4, ou nos passos à seguir utilize o particionamento "
+"manual para efetuar sua configuração personalizada."
+msgstr ""
+"The btrfs partition has several improvements made to the system, but it is "
+"incompatible with some computers, click to clear this check box to use the "
+"default partition format to ext4, or in the steps to follow to use the "
+"manual partitioning to make your custom configuration."
+
+msgid "Recomendado para a maioria das situações."
+msgstr "Suitable for the majority of the cases."
+
+msgid ""
+"Este kernel é mais recomendado para sistemas com placas de vídeo nvidia que "
+"necessitam do driver legacy ou que tenham alguma incompatibilidade com o "
+"kernel Xanmod."
+msgstr ""
+"This kernel is used for systems that have nvidia video cards that require "
+"the driver to legacy, or to have some incompatibility with the kernel Xanmod."
+
+msgid ""
+"Antes de prosseguir com a instalação, verifique as opções a seguir, caso "
+"esteja com dúvidas sobre o que escolher, apenas pressione próximo, pois é a "
+"melhor opção para a maioria das situações!"
+msgstr ""
+"Before proceeding with the installation, please check the following if you "
+"are not sure which one to choose, just hit next, because it is the best "
+"option for the most of the situation!"
+
+msgid "Utilizar partição btrfs"
+msgstr "Use a btrfs partition"
+
+msgid "Instalar com o Kernel Ubuntu"
+msgstr "To install packages in Ubuntu"
+
+msgid "Instalar com o Kernel Xanmod"
+msgstr "To install the Kernel-Xanmod"
+
+msgid ""
+"* O kernel em uso no momento é o $versionRunning e o kernel alternativo é o "
+"$versionAnother."
+msgstr ""
+"* The kernel currently in use is the $versionRunning the kernel, the "
+"alternative is a $versionAnother."
+
+msgid "Cancelar"
+msgstr "Cancel"
+
+msgid "Próximo"
+msgstr "Next"
