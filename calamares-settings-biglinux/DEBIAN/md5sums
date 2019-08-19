@@ -7,8 +7,8 @@ f33ed222c53849832896769342b9bdca  DEBIAN/postrm
 f60f3341e339cd1ddf2883cb09b7919f  DEBIAN/pt.po
 ba6727a425cdd42912db9e831bb1e6f8  DEBIAN/calamares-settings-biglinux.pot
 eb75d9b5d0a4d0d5b1963d837d7c2c50  DEBIAN/en.po
-1c247dcf016ebe2831e804fbaff2821f  DEBIAN/control
 5eac474a6542c23abc15c21fdbe7e717  DEBIAN/es.po
+abb24a89b06cf94d24be20c70b066599  DEBIAN/control
 dad35515f932723e18a7d4e06c09dd82  etc/calamares/branding/biglinux/biglinux-logo.png
 d2dc8743be54405ca1aa62b92047b09f  etc/calamares/branding/biglinux/branding.desc
 000ab826ba254f5d13f9c7aca8aa1804  etc/calamares/branding/biglinux/show.qml
