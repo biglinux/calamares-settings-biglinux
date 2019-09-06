@@ -8,7 +8,7 @@ f60f3341e339cd1ddf2883cb09b7919f  DEBIAN/pt.po
 ba6727a425cdd42912db9e831bb1e6f8  DEBIAN/calamares-settings-biglinux.pot
 5eac474a6542c23abc15c21fdbe7e717  DEBIAN/es.po
 dca4b68017a5e1305eb0ea7df968443e  DEBIAN/en.po
-1c247dcf016ebe2831e804fbaff2821f  DEBIAN/control
+9ea1d86205cfa82b409430e4460d11a2  DEBIAN/control
 dad35515f932723e18a7d4e06c09dd82  etc/calamares/branding/biglinux/biglinux-logo.png
 d2dc8743be54405ca1aa62b92047b09f  etc/calamares/branding/biglinux/branding.desc
 000ab826ba254f5d13f9c7aca8aa1804  etc/calamares/branding/biglinux/show.qml
@@ -21,7 +21,7 @@ ea0cd5f674f91296ae089593a44a4184  etc/calamares/modules/luksopenswaphookcfg.conf
 c34d4a3f82e404062cb5138c8926fb49  etc/calamares/modules/mount.conf
 03998ef19f4436a5faec2a09ff8366f3  etc/calamares/modules/unpackfs.conf
 3ade819d0c371039963fdccc10883670  etc/calamares/modules/users.conf
-026ee0b5db883e8147e2691fb6548b25  etc/calamares/modules/welcome.conf
+91a8df6ee3a60bb0adaa3d03e16be3e9  etc/calamares/modules/welcome.conf
 76036c620984cbb74953d81f840b4660  etc/calamares/modules/locale.conf
 eaf91a6fed3ffea6c7823d6486a8ab31  etc/calamares/modules/packages.conf
 ae7f561bd1a5b417b2c09051f203bdfc  etc/calamares/modules/partition.conf
