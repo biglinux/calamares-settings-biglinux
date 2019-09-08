@@ -1,21 +1,3 @@
-/* === This file is part of Calamares - <http://github.com/calamares> ===
- *
- *   Copyright 2015, Teo Mrnjavac <teo@kde.org>
- *   Copyright 2018, Jonathan Carter <jcc@debian.org>
- *
- *   Calamares is free software: you can redistribute it and/or modify
- *   it under the terms of the GNU General Public License as published by
- *   the Free Software Foundation, or (at your option) any later version.
- *
- *   Calamares is distributed in the hope that it will be useful,
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- *   GNU General Public License for more details.
- *
- *   You should have received a copy of the GNU General Public License
- *   along with Calamares. If not, see <http://www.gnu.org/licenses/>.
- */
-
 import QtQuick 2.0;
 import calamares.slideshow 1.0;
 
@@ -24,27 +6,97 @@ Presentation
     id: presentation
 
     Timer {
-        interval: 20000
+        interval: 10000
+        running: true
         repeat: true
         onTriggered: presentation.goToNextSlide()
     }
+Slide 
+{
+        anchors.fill: parent
 
-    Slide {
+        Image {
+            id: background
+            source: "big-slide.svg"
+            anchors.fill: parent
+        
+            Text {
+                anchors.centerIn: parent
+                anchors.verticalCenterOffset: 0
+                anchors.horizontalCenterOffset: -125
+                font.pixelSize: parent.width *.025
+                color: 'blue'
+                text: qsTr("Install the system using the Btrfs format <br/>"+"and have daily restore points, making your system much more reliable.<br/>")
+                wrapMode: Text.WordWrap
+                width: 500
+                horizontalAlignment: Text.AlignLeft
+            }
+        }
+}   
+Slide 
+{
+        anchors.fill: parent
+
         Image {
             id: background1
-            source: "/usr/share/wallpapers/BigLinux09.jpg"
-            width: 1920; height: 1080
-            fillMode: Image.PreserveAspectFit
-            anchors.centerIn: parent
+            source: "big-slide2.svg"
+            anchors.fill: parent
+        
+            Text {
+                anchors.centerIn: parent
+                anchors.verticalCenterOffset: 0
+                anchors.horizontalCenterOffset: -125
+                font.pixelSize: parent.width *.015
+                color: 'white'
+                text: qsTr("We offer 3 desktop options,<br/>"+"at the login screen you can switch between classic KDE, modern or LXQt.<br/>")
+                wrapMode: Text.WordWrap
+                width: 500
+                horizontalAlignment: Text.AlignLeft
+            }
         }
-        Text {
-            anchors.horizontalCenter: background1.horizontalCenter
-            anchors.top: background1.bottom
-            text: "Installing..."
-            wrapMode: Text.WordWrap
-            width: 600
-            horizontalAlignment: Text.Center
+}   
+Slide 
+{
+        anchors.fill: parent
+
+        Image {
+            id: background2
+            source: "big-slide3.svg"
+            anchors.fill: parent
+        
+            Text {
+                anchors.centerIn: parent
+                anchors.verticalCenterOffset: 0
+                anchors.horizontalCenterOffset: -125
+                font.pixelSize: parent.width *.015
+                color: 'white'
+                text: qsTr("Our app store supports 3 different program formats: deb, snap and flatpak.<br/>")
+                wrapMode: Text.WordWrap
+                width: 500
+                horizontalAlignment: Text.AlignLeft
         }
     }
+}   
+Slide 
+{
+        anchors.fill: parent
 
+        Image {
+            id: background3
+            source: "big-slide4.svg"
+            anchors.fill: parent
+        
+            Text {
+                anchors.centerIn: parent
+                anchors.verticalCenterOffset: 0
+                anchors.horizontalCenterOffset: -125
+                font.pixelSize: parent.width *.015
+                color: 'white'
+                text: qsTr("Our Office Suite has a new look <br/>"+"and a new text correction, which is much smarter.<br/>")
+                wrapMode: Text.WordWrap
+                width: 500
+                horizontalAlignment: Text.AlignLeft
+            }
+        }
+    }
 }
