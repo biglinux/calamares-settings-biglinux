@@ -40,6 +40,7 @@ def run():
     """
     root_mount_point = libcalamares.globalstorage.value("rootMountPoint")
     subprocess.call(["grub-fix.sh", root_mount_point + '/etc/default/grub'])
+    subprocess.call(["mkdir", "-p", root_mount_point + '/tmp/user/0'])
 
 
 
