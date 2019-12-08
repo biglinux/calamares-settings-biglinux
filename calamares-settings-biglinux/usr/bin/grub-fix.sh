@@ -8,6 +8,10 @@ echo 'GRUB_RECORDFAIL_TIMEOUT="$GRUB_TIMEOUT"' >>  $*
 
 sed -i 's|GRUB_TIMEOUT=.*|GRUB_TIMEOUT="5"|g' $*
 
+sed -i 's|GRUB_TIMEOUT_STYLE=.*|GRUB_TIMEOUT_STYLE=menu|g' $*
+
+sed -i 's| resume=.*"|"|g' $*
+
 sed -i 's|#GRUB_DISABLE_RECOVERY="true"|GRUB_DISABLE_RECOVERY="true"|g' $*
 
 
