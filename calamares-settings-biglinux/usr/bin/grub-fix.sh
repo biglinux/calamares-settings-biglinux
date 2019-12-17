@@ -20,3 +20,6 @@ echo "[Last]
 Session=$(cat /tmp/big_desktop_changed | sed 's|.*/||g')" >> $(echo "$*" | sed 's|etc/default/grub|var/lib/sddm/state.conf|g')
 
 cp -f /tmp/big_desktop_theme $(echo "$*" | sed 's|etc/default/grub|etc/default-theme-biglinux|g')
+
+#Remove autodefrag in btrfs using ssd
+sed -i '/btrfs.*ssd/ s/,ssd//g' $(echo "$*" | sed 's|etc/default/grub|etc/fstab|g')

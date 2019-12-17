@@ -2,7 +2,7 @@
 set -e
 
 
-    sed -i 's|subvol=@", partition.get("options", ""|subvol=@", partition.get("options", "compress-force=zstd"|g' /lib/x86_64-linux-gnu/calamares/modules/mount/main.py
-    sed -i 's|subvol=@home", partition.get("options", ""|subvol=@home", partition.get("options", "compress-force=zstd"|g' /lib/x86_64-linux-gnu/calamares/modules/mount/main.py
+    sed -i 's|subvol=@", partition.get("options", ""|subvol=@", partition.get("options", "compress-force=zstd:2"|g' /lib/x86_64-linux-gnu/calamares/modules/mount/main.py
+    sed -i 's|subvol=@home", partition.get("options", ""|subvol=@home", partition.get("options", "compress-force=zstd:2"|g' /lib/x86_64-linux-gnu/calamares/modules/mount/main.py
 
 exit 0

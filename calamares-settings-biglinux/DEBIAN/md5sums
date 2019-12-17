@@ -4,11 +4,11 @@ dca4b68017a5e1305eb0ea7df968443e  DEBIAN/en.po
 5eac474a6542c23abc15c21fdbe7e717  DEBIAN/es.po
 4edec0c5a7f36ef8cb6def0193915f0f  DEBIAN/languages
 d41d8cd98f00b204e9800998ecf8427e  DEBIAN/md5sums
-1b1b5475e00eeead9671a2f686703688  DEBIAN/postinst
 f33ed222c53849832896769342b9bdca  DEBIAN/postrm
 fa5ebcc45c264528e57dea5e170e0b9b  DEBIAN/preinst
 f60f3341e339cd1ddf2883cb09b7919f  DEBIAN/pt.po
-27f867133325c57182177ccd30efe650  DEBIAN/control
+1ac16a181e2522034e0e6a4b4529c648  DEBIAN/control
+c13a46fb6e62d64483e3fae593702508  DEBIAN/postinst
 0ef1a6322d11d15392e1698a8dbe8eb6  etc/calamares/branding/biglinux/big-logo.png
 44f8d4d395d9af94c5611587a5f9347e  etc/calamares/branding/biglinux/big-slide.svg
 6b07e91396cb88ebacbf2c6194d7273a  etc/calamares/branding/biglinux/big-slide2.svg
@@ -27,7 +27,6 @@ ae91c4c7f802ea8ebcebd47597c9df33  etc/calamares/branding/biglinux/lang/calamares
 e4ea98544e8d7de65b83ddcbcfc193b3  etc/calamares/modules/bootloader.conf
 45bc18ea7d1b217a5c7bb82218662612  etc/calamares/modules/displaymanager.conf
 5455194d820c8303be882735d7dccf5e  etc/calamares/modules/finished.conf
-40603d1726d9beaac7d304181937becd  etc/calamares/modules/fstab.conf
 76036c620984cbb74953d81f840b4660  etc/calamares/modules/locale.conf
 ea0cd5f674f91296ae089593a44a4184  etc/calamares/modules/luksopenswaphookcfg.conf
 393ba0c75671f83afaa6a1417d3fa3d2  etc/calamares/modules/machineid.conf
@@ -37,11 +36,12 @@ ae7f561bd1a5b417b2c09051f203bdfc  etc/calamares/modules/partition.conf
 03998ef19f4436a5faec2a09ff8366f3  etc/calamares/modules/unpackfs.conf
 71389b3aed2f30aa6107d8d0a577ce9f  etc/calamares/modules/users.conf
 91a8df6ee3a60bb0adaa3d03e16be3e9  etc/calamares/modules/welcome.conf
+01feab9a5da5452e9e27c89f961f50e9  etc/calamares/modules/fstab.conf
 15f41a78a0654d1380ab3da5bd56108d  etc/calamares/settings.conf
 a433b0337e8947609fccd93ece8ded5d  usr/bin/calamares
-a59af8f8c68ff81ab609ae7803606e50  usr/bin/grub-fix.sh
 c3be32fb5661841b9a2e8571ecf99fbb  usr/bin/grub-fix2.sh
 57cd0edd59dbf306d3065fa844e7cd73  usr/bin/install-debian
+1ca343a010a9fe388d481e4a3cbe5eeb  usr/bin/grub-fix.sh
 726a342ac36e842411da0f43fb02fa4d  usr/lib/calamares/modules/bootloader-config/module.desc
 4b91d31fff61107459e6ea7f22c119aa  usr/lib/calamares/modules/sources-final/module.desc
 d178b9bb370c010484b87a6ac7951a59  usr/lib/calamares/modules/sources-media-unmount/module.desc
