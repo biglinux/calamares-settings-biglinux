@@ -13,26 +13,201 @@ export TEXTDOMAIN=calamares-settings-biglinux
 # http://materializecss.com/
 . /usr/share/bigbashview/bcc/shell/base.sh
 
-#Title/Description variables
-bcc_title=$"Instalar no HD"
-bcc_description=$"Torne este sistema permanente em seu computador."
-# To disable logo use: bcc_logo="no"
-bcc_logo="biglinux-logo.png"
 
-# About variables
-# To disable about use: bcc_about="no"
-bcc_about="yes"
-bcc_about_license=$"GPL v2 or greater"
-bcc_about_by=$"Bruno Gonçalves"
-bcc_about_release_date=$"24/03/2019"
-bcc_about_url_code=$"https://github.com/biglinux/calamares-settings-biglinux"
-bcc_about_url_project=$"https://www.biglinux.com.br"
+cat << EOF
+<style>
 
-tooltip_btrfs=$"A partição btrfs trás diversas melhorias para o sistema, mas é incompatível com alguns computadores, desmarque essa opção para utilizar por padrão a partição no formato ext4, ou nos passos à seguir utilize o particionamento manual para efetuar sua configuração personalizada."
+body {
+			background-image: url(/usr/share/wallpapers/praia4.jpg) !important;
+			background-position: center center;
+			background-repeat:  no-repeat;
+			background-attachment: fixed;
+			background-size:  cover;
+			background-color: #000;
+margin-top: 0px;
+margin-left: 0px;
+margin-right: 0px;
+margin-bottom: 0px;
+padding: 0px;
+text-shadow: 1px 1px 2px rgba(0, 0, 0, 1);
+font-weight: 250;
+color: rgba(255, 255, 255, 1);
+font-family: 'Droid Sans';
+  text-align: justify;
+  text-justify: inter-word;
+}
 
-tooltop_xanmod=$"Recomendado para a maioria das situações."
+.bar:before {
+  background: url(/usr/share/wallpapers/BigLinux/plants.jpg);
+	background-attachment: fixed;
+}
 
-tooltip_debian=$"Este kernel é mais recomendado para sistemas com placas de vídeo nvidia que necessitam do driver legacy ou que tenham alguma incompatibilidade com o kernel Xanmod."
+
+
+#page2 {
+	margin-right: 16%;
+	margin-left: 16%;
+	height: 100%;
+}
+
+
+#middle {
+    display: table-cell;
+    vertical-align: middle;
+    font-family: ubuntu;
+    font-weight: 400;
+    line-height: 22px;
+    min-width: 720px;
+    width: 100%;
+    padding-left: 6%;
+    padding-right: 6%;
+    padding-bottom: 15px;
+    padding-top: 8%;
+    font-size: 17px;
+    display: block;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-top: 0px;
+    border-bottom: 0px;
+    argin-bottom: 0px;
+    height: 100%;
+    top: 0%;
+}
+
+div#version {
+    margin-top: 48px;
+}
+
+.input-field.col label {
+    left: 0.75rem;
+color: #57fff0;
+    font-size: 17px;
+}
+
+
+
+
+.bar {
+  position: relative;
+  background: rgba(0,0,0,0.65);
+  box-shadow: 0px 0px 95px 0px rgba(0,0,0,1);
+	height: 100%;
+}
+
+.bar:before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  height: 100%;
+  top: 0; right: 0; left: 0;
+  filter: blur(15px);
+  -webkit-filter: blur(15px);
+	height: 100%;
+}
+
+.material-tooltip {font-family:ubuntu;
+font-weight:400;font-size:18px;
+line-height: 120%;}
+
+.with-gap {color: #ffffff !important;
+font-size:20px !important;
+margin-left:20px;
+margin-right:20px;
+}
+
+div#contentbig {
+    display: inline-flex;
+}
+
+
+
+label.tooltipped.with-gap {
+    margin-top: 14px;
+    margin-left: 21px;
+    margin-right: 50px;
+}
+
+
+div#bigfooter {
+    margin: auto;
+    width: 426px;
+}
+
+.btn, .btn-large {
+    margin: 33px;
+    color: #fff !important;
+}
+
+
+img {
+    vertical-align: text-bottom;
+    margin-right: 7px;
+}
+
+
+[type="checkbox"]:checked + label:before {
+    border-right: 2px solid #00ffe7 !important;
+    border-bottom: 2px solid #00ffe7 !important;
+}
+
+.btn, .btn-large {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 1);
+}
+
+.backdrop {
+    background-color: rgba(111, 111, 111, 1) !important;
+}
+
+a {
+    color: #b3dfff !important;
+}
+
+</style>
+
+
+<script>
+$('.tooltipped').tooltip({
+ html: "<img src='/usr/share/wallpapers/BigLinux/plants.jpg'>"
+});
+</script>
+
+
+EOF
+
+
+  echo '
+  <body>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/usr/share/bigbashview/bcc/css/base.css">
+    <link rel="stylesheet" type="text/css" href="/usr/share/bigbashview/bcc/materialize/css/materialize.css">
+    <script src="/usr/share/bigbashview/bcc/materialize/js/jquery.js"></script>
+    <script src="/usr/share/bigbashview/bcc/materialize/js/materialize.js"></script>
+    <script src="/usr/share/bigbashview/bcc/js/big.js"></script>
+  </head>'
+  echo '<title>' $"Instalador BigLinux" '</title>'
+
+
+tooltip_btrfs=$"<br>A partição btrfs trás diversas melhorias para o sistema, mas
+<br>
+é incompatível com alguns computadores, desmarque essa opção
+<br>para utilizar por padrão a partição no formato ext4, ou
+<br>nos passos a seguir utilize o particionamento manual para
+<br>efetuar sua configuração personalizada.<br><br>"
+
+tooltop_xanmod=$"<br>Se algum dispositivo do seu computador não foi detectado
+<br>
+corretamente pelo kernel generic, utilize o kernel xanmod.
+<br><br>
+Em alguns casos o kernel xanmod pode trazer melhor desempenho.
+<br><br>
+Em computadores com placa de vídeo nvidia não recomendo que utilize o kernel xanmod.
+<br><br>"
+
+tooltip_debian=$"<br>Esse é o kernel recomendado para a maioria dos computadores,
+<br>
+porém, se algum dispositivo do seu computador não está funcionando corretamente,
+<br>experimente utilizar o kernel xanmod.<br><br>"
 
 
 cp -f /etc/calamares/modules/partition.conf-bkp /etc/calamares/modules/partition.conf
@@ -47,11 +222,12 @@ fi
 
 
 
-# Print header in screen
-bcc_header
-
 # Import tweaks for themev
 echo '<link rel="stylesheet" type="text/css" href="theme.css">'
+
+
+echo '<div id=page2>'
+echo '<div id="middle" class="bar">'
 
 ###############
 # Start Content
@@ -71,7 +247,11 @@ else
     versionAnother="$xanmodVersion"
 fi
 
-echo '<font color=red size=+1>' $"Antes de prosseguir com a instalação, verifique as opções a seguir, caso esteja com dúvidas sobre o que escolher, apenas pressione próximo, pois é a melhor opção para a maioria das situações!" '<p></font>'
+echo $"Obrigado por escolher a distribuição BigLinux $(lsb_release -rs), nos próximos passos instalaremos o sistema no seu computador.
+<br><br>
+Em caso de dúvidas sobre as opções abaixo, utilize a configuração padrão e prossiga com a instalação.
+<br><br>
+Caso precise de ajuda com a instalação ou uso do sistema utilize nosso fórum:" "<a onclick=\"_run('./forum.run')\">https://forum.biglinux.com.br</a>" '<p></font>'
 
 echo '<form action="wait.sh.htm">'
 
@@ -81,15 +261,15 @@ echo '<form action="wait.sh.htm">'
 echo '
         <div class="input-field col s6">
       <input name="btrfs" type="checkbox" id="btrfs" value="y"' "checked" '/>
-      <label for="btrfs" class="black-text tooltipped" data-position="top" data-delay="50" data-tooltip="'" $tooltip_btrfs "'">' $"Utilizar partição btrfs" '</label>
+      <label for="btrfs" class="tooltipped" data-position="top" data-delay="50" data-tooltip="'" $tooltip_btrfs "'">' $"Partição btrfs" '</label>
     </div>
     <div class="input-field col s6">
       <input name="debian" type="checkbox" id="debian" value="y"' "$debianChecked" '/>
-      <label for="debian" class="black-text tooltipped" data-position="top" data-delay="50" data-tooltip="'" $tooltip_debian "'">' $"Instalar com o Kernel Ubuntu" '</label>
+      <label for="debian" class="tooltipped" data-position="top" data-delay="50" data-tooltip="'" $tooltip_debian "'">' $"Kernel Generic - $debianVersion" '</label>
     </div>
     <div class="input-field col s6">
       <input name="xanmod" type="checkbox" id="xanmod" value="y"' "$xanmodCheked" '/>
-      <label for="xanmod" class="black-text tooltipped" data-position="top" data-delay="50" data-tooltip="'" $tooltop_xanmod "'">' $"Instalar com o Kernel Xanmod" '</label>
+      <label for="xanmod" class="tooltipped" data-position="top" data-delay="50" data-tooltip="'" $tooltop_xanmod "'">' $"Kernel Xanmod - $xanmodVersion" '</label>
     </div>
 '
 
@@ -98,26 +278,23 @@ echo '
 
 
 
-echo '<br><br><br><br><br><br><br><br><br>' $"* O kernel em uso no momento é o $versionRunning e o kernel alternativo é o $versionAnother."
+echo '<div id=version>' $"* Kernel em uso no momento: $versionRunning" '</div>'
 
 
-###################
-# Close content div
-echo '</div></div>'
+
 
 
 
 ##############
 # Start footer
-  echo '<div id="bcc_footer">'
-        echo '<div id="bcc_footer_right">'
-          echo '<a href="/usr/share/bigbashview/close.sh" class="waves-effect waves-light btn blue-grey"><img src=cancel.png>'$"Cancelar"'</a>'
-          echo '<button type="submit" class="btn waves-effect waves-light blue-grey" name="action"><img src=ok.png>'$"Próximo"'</button>'
-        echo '</div>'
-  echo '</div>'
-echo '</form>'
+echo "<div id=bigfooter>"
+          echo '<a href="/usr/share/bigbashview/close.sh" class="btn"><img src=cancel.png>'$"Cancelar"'</a>'
+          echo '<button type="submit" class="btn" name="action"><img src=ok.png>'$"Próximo"'</button>'
+echo '</form></div>'
 
-
+###################
+# Close content div
+echo '</div></div>'
 #########
 # The end
 echo '</body>'

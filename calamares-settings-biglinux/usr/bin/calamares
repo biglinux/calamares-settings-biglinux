@@ -5,8 +5,15 @@ if [ "$(ps -e | grep calamares.distrib)" != "" ]; then
     exit 0
 fi
 
+if [ "$(grep -i virtualbox /sys/devices/virtual/dmi/id/product_name)" = "" ] && [ "$(grep -i virtualbox /etc/calamares/modules/packages.conf)" = "" ]; then
+    echo "      - 'virtualbox-guest-utils'
+      - 'virtualbox-guest-x11'
+      - 'virtualbox-guest-dkms-fake'" >> /etc/calamares/modules/packages.conf
+fi
 
-bigbashview /usr/share/bigbashview/bcc/apps/bigbashview-calamares/index.sh.htm -s 850x600 -i /usr/share/bigbashview/bcc/apps/bigbashview-calamares/icon.png
+
+cd /usr/share/bigbashview/bcc/apps/bigbashview-calamares/
+bigbashview  index.sh.htm -s 1080x580 -i icon.png
 
 if [ -e "/tmp/biglinux-wait-install" ]; then
 
