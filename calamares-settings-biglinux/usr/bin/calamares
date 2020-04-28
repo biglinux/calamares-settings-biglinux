@@ -13,7 +13,7 @@ fi
 
 
 cd /usr/share/bigbashview/bcc/apps/bigbashview-calamares/
-bigbashview  index.sh.htm -s 1080x580 -i icon.png
+bigbashview  index.sh.htm -s 1080x570 -i /usr/share/icons/breeze/apps/48/calamares.svg
 
 if [ -e "/tmp/biglinux-wait-install" ]; then
 

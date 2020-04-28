@@ -48,6 +48,14 @@ if [ "$(ls /sys/firmware/efi/efivars/ | grep SecureBoot)" = "" ]; then
     sed -i 's|  - bootloader-fix|#  - bootloader-fix|g' /etc/calamares/settings.conf
 fi
 
+if [ "$p_nvidia" = "y" ]; then
+
+    echo "  - install:" >> /etc/calamares/modules/packages.conf
+    echo "      - '$(nvidia-detector)'" >> /etc/calamares/modules/packages.conf
+fi
+
+
+
 
 IFS=$OIFS
 

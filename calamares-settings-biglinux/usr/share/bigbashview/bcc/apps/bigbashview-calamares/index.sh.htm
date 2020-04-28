@@ -18,7 +18,7 @@ cat << EOF
 <style>
 
 body {
-			background-image: url(/usr/share/wallpapers/praia4.jpg) !important;
+			background-image: url(bg.jpg) !important;
 			background-position: center center;
 			background-repeat:  no-repeat;
 			background-attachment: fixed;
@@ -33,20 +33,19 @@ text-shadow: 1px 1px 2px rgba(0, 0, 0, 1);
 font-weight: 250;
 color: rgba(255, 255, 255, 1);
 font-family: 'Droid Sans';
-  text-align: justify;
+  text-align: left;
   text-justify: inter-word;
 }
 
 .bar:before {
-  background: url(/usr/share/wallpapers/BigLinux/plants.jpg);
 	background-attachment: fixed;
 }
 
 
 
 #page2 {
-	margin-right: 16%;
-	margin-left: 16%;
+	margin-right: 4%;
+	margin-left: 4%;
 	height: 100%;
 }
 
@@ -57,13 +56,13 @@ font-family: 'Droid Sans';
     font-family: ubuntu;
     font-weight: 400;
     line-height: 22px;
-    min-width: 720px;
+    min-width: 880px;
     width: 100%;
-    padding-left: 6%;
-    padding-right: 6%;
+    padding-left: 4%;
+    padding-right: 4%;
     padding-bottom: 15px;
-    padding-top: 8%;
-    font-size: 17px;
+    padding-top: 3%;
+    font-size: 18px;
     display: block;
     box-sizing: border-box;
     border: 1px solid #ccc;
@@ -80,8 +79,8 @@ div#version {
 
 .input-field.col label {
     left: 0.75rem;
-color: #57fff0;
-    font-size: 17px;
+color: #c5f4ff;
+    font-size: 18px;
 }
 
 
@@ -89,7 +88,7 @@ color: #57fff0;
 
 .bar {
   position: relative;
-  background: rgba(0,0,0,0.65);
+  background: rgba(0, 0, 0, 0.54);
   box-shadow: 0px 0px 95px 0px rgba(0,0,0,1);
 	height: 100%;
 }
@@ -131,6 +130,9 @@ label.tooltipped.with-gap {
 div#bigfooter {
     margin: auto;
     width: 426px;
+        margin-top:20px;
+    margin-bottom:0px;
+
 }
 
 .btn, .btn-large {
@@ -162,14 +164,31 @@ a {
     color: #b3dfff !important;
 }
 
+.material-tooltip {font-family:ubuntu;
+    font-weight:400;font-size:18px !important;
+    line-height: 120%;
+    border-radius: 20px !important;
+    box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.75);
+
+}
+
+.with-gap {color: #ffffff !important;
+font-size:20px !important;
+margin-left:20px;
+margin-right:20px;
+margin-top:10%;
+}
+
+
+.xanmodAlert {
+    align-content: flex-end;
+    display: inline-flex;
+    color: #faff00;
+}
+
 </style>
 
 
-<script>
-$('.tooltipped').tooltip({
- html: "<img src='/usr/share/wallpapers/BigLinux/plants.jpg'>"
-});
-</script>
 
 
 EOF
@@ -188,26 +207,27 @@ EOF
   echo '<title>' $"Instalador BigLinux" '</title>'
 
 
-tooltip_btrfs=$"<br>A partição btrfs trás diversas melhorias para o sistema, mas
+tooltip_btrfs=$"A partição btrfs trás diversas melhorias para o sistema, mas
 <br>
 é incompatível com alguns computadores, desmarque essa opção
 <br>para utilizar por padrão a partição no formato ext4, ou
 <br>nos passos a seguir utilize o particionamento manual para
-<br>efetuar sua configuração personalizada.<br><br>"
+<br>efetuar sua configuração personalizada."
 
-tooltop_xanmod=$"<br>Se algum dispositivo do seu computador não foi detectado
+tooltop_xanmod=$"Se algum dispositivo do seu computador não foi detectado
 <br>
-corretamente pelo kernel generic, utilize o kernel xanmod.
-<br><br>
-Em alguns casos o kernel xanmod pode trazer melhor desempenho.
-<br><br>
-Em computadores com placa de vídeo nvidia não recomendo que utilize o kernel xanmod.
-<br><br>"
+corretamente pelo kernel generic, utilize o kernel xanmod."
 
-tooltip_debian=$"<br>Esse é o kernel recomendado para a maioria dos computadores,
+tooltip_debian=$"Esse é o kernel recomendado para a maioria dos computadores,
 <br>
 porém, se algum dispositivo do seu computador não está funcionando corretamente,
-<br>experimente utilizar o kernel xanmod.<br><br>"
+<br>experimente utilizar o kernel xanmod."
+
+tooltip_nvidia=$"Foi detectada uma placa de vídeo Nvidia nesse computador.<br><br>
+Para obter melhor desempenho da sua placa de vídeo é necessário instalar o driver<br>
+proprietário, deseja que essa instalação seja feita automaticamente?"
+
+
 
 
 cp -f /etc/calamares/modules/partition.conf-bkp /etc/calamares/modules/partition.conf
@@ -247,29 +267,44 @@ else
     versionAnother="$xanmodVersion"
 fi
 
-echo $"Obrigado por escolher a distribuição BigLinux $(lsb_release -rs), nos próximos passos instalaremos o sistema no seu computador.
-<br><br>
-Em caso de dúvidas sobre as opções abaixo, utilize a configuração padrão e prossiga com a instalação.
-<br><br>
-Caso precise de ajuda com a instalação ou uso do sistema utilize nosso fórum:" "<a onclick=\"_run('./forum.run')\">https://forum.biglinux.com.br</a>" '<p></font>'
+echo "<center>" $"Obrigado por escolher o BigLinux $(lsb_release -rs)." "</center>"
+echo "<br><br><li>"
+echo $"Siga os próximos passos para efetuar a instalação no seu computador."
+echo "<br><br><li>"
+echo $"Em caso de dúvidas sobre as opções abaixo, utilize a configuração padrão e prossiga com a instalação."
+echo "<br><br><li>"
+echo $"Se precisar de ajuda com a instalação ou uso do sistema utilize nosso fórum:" "<a onclick=\"_run('./forum.run')\">https://forum.biglinux.com.br</a>" '<p></font>'
 
 echo '<form action="wait.sh.htm">'
 
 
 
 
-echo '
-        <div class="input-field col s6">
+echo '<div class="input-field col s6">
       <input name="btrfs" type="checkbox" id="btrfs" value="y"' "checked" '/>
       <label for="btrfs" class="tooltipped" data-position="top" data-delay="50" data-tooltip="'" $tooltip_btrfs "'">' $"Partição btrfs" '</label>
-    </div>
-    <div class="input-field col s6">
+    </div>'
+    
+
+if [ "$(lspci | grep -i vga | grep -i nvidia)" != "" ]; then
+
+    NVIDIA_VERSION="$(nvidia-detector)"
+    XANMOD_ALERT=$" - Não recomendado com driver proprietário Nvidia"
+
+    echo '<div class="input-field col s6">
+      <input name="nvidia" type="checkbox" id="nvidia" value="y"' "checked" '/>
+      <label for="nvidia" class="tooltipped" data-position="top" data-delay="50" data-tooltip="'" $tooltip_nvidia "'">' $"Instalar o driver proprietário: $NVIDIA_VERSION" '</label>
+    </div>'
+fi
+
+    
+echo '<div class="input-field col s6">
       <input name="debian" type="checkbox" id="debian" value="y"' "$debianChecked" '/>
       <label for="debian" class="tooltipped" data-position="top" data-delay="50" data-tooltip="'" $tooltip_debian "'">' $"Kernel Generic - $debianVersion" '</label>
     </div>
     <div class="input-field col s6">
       <input name="xanmod" type="checkbox" id="xanmod" value="y"' "$xanmodCheked" '/>
-      <label for="xanmod" class="tooltipped" data-position="top" data-delay="50" data-tooltip="'" $tooltop_xanmod "'">' $"Kernel Xanmod - $xanmodVersion" '</label>
+      <label for="xanmod" class="tooltipped" data-position="top" data-delay="50" data-tooltip="'" $tooltop_xanmod "'">' $"Kernel Xanmod - $xanmodVersion" '<div class="xanmodAlert">' "$XANMOD_ALERT" '</div></label>
     </div>
 '
 
@@ -278,7 +313,7 @@ echo '
 
 
 
-echo '<div id=version>' $"* Kernel em uso no momento: $versionRunning" '</div>'
+echo '<div id=version><center>' $"Kernel em uso no momento: $versionRunning" '</center></div>'
 
 
 
@@ -288,8 +323,8 @@ echo '<div id=version>' $"* Kernel em uso no momento: $versionRunning" '</div>'
 ##############
 # Start footer
 echo "<div id=bigfooter>"
-          echo '<a href="/usr/share/bigbashview/close.sh" class="btn"><img src=cancel.png>'$"Cancelar"'</a>'
-          echo '<button type="submit" class="btn" name="action"><img src=ok.png>'$"Próximo"'</button>'
+          echo '<a href="/usr/share/bigbashview/close.sh" class="btn blue-grey darken-1"><img src=cancel.png>'$"Cancelar"'</a>'
+          echo '<button type="submit" class="btn blue-grey darken-1" name="action"><img src=ok.png>'$"Próximo"'</button>'
 echo '</form></div>'
 
 ###################
