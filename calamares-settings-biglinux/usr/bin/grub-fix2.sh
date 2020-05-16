@@ -26,6 +26,7 @@ cp -f "/usr/share/efi/biglinux-shim/shimx64.efi" "$1/EFI/biglinux-shim/shimx64.e
 cp -f "$1/EFI/BigLinux/grub.cfg" "$1/EFI/ubuntu/grub.cfg"
 cp -f "$1/EFI/BigLinux/grub.cfg" "$1/EFI/biglinux-shim/grub.cfg"
 
+sed -i 's|splashquiet|splash quiet|g' "$1/../../etc/default/grub"
 
 partition="$(findmnt -n -o SOURCE --target $1)"
 device="$(echo "$partition" | sed 's|[0-9]||g')"

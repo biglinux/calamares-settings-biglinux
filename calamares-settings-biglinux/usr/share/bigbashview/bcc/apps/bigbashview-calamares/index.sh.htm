@@ -130,7 +130,7 @@ label.tooltipped.with-gap {
 div#bigfooter {
     margin: auto;
     width: 426px;
-        margin-top:20px;
+        margin-top:50px;
     margin-bottom:0px;
 
 }
@@ -286,16 +286,16 @@ echo '<div class="input-field col s6">
     </div>'
     
 
-if [ "$(lspci | grep -i vga | grep -i nvidia)" != "" ]; then
-
-    NVIDIA_VERSION="$(nvidia-detector)"
-    XANMOD_ALERT=$" - Não recomendado com driver proprietário Nvidia"
-
-    echo '<div class="input-field col s6">
-      <input name="nvidia" type="checkbox" id="nvidia" value="y"' "checked" '/>
-      <label for="nvidia" class="tooltipped" data-position="top" data-delay="50" data-tooltip="'" $tooltip_nvidia "'">' $"Instalar o driver proprietário: $NVIDIA_VERSION" '</label>
-    </div>'
-fi
+# if [ "$(lspci | grep -i vga | grep -i nvidia)" != "" ]; then
+# 
+#     NVIDIA_VERSION="$(nvidia-detector)"
+#     XANMOD_ALERT=$" - Não recomendado com driver proprietário Nvidia"
+# 
+#     echo '<div class="input-field col s6">
+#       <input name="nvidia" type="checkbox" id="nvidia" value="y"' "checked" '/>
+#       <label for="nvidia" class="tooltipped" data-position="top" data-delay="50" data-tooltip="'" $tooltip_nvidia "'">' $"Instalar o driver proprietário: $NVIDIA_VERSION" '</label>
+#     </div>'
+# fi
 
     
 echo '<div class="input-field col s6">
