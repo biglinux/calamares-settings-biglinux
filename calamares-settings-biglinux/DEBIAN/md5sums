@@ -1,14 +1,15 @@
 21a3af4bb523177cb5ae0c8ab4f85109  DEBIAN/dpkg-divert
-c4ede6df600596ec5fd2cf54ca3f1f40  DEBIAN/en.po
 d9e654c41950389162cd9292523a0305  DEBIAN/es.po
 4edec0c5a7f36ef8cb6def0193915f0f  DEBIAN/languages
-d41d8cd98f00b204e9800998ecf8427e  DEBIAN/md5sums
+cc1802125aa855526b5dfc45dbf9459c  DEBIAN/md5sums
 c13a46fb6e62d64483e3fae593702508  DEBIAN/postinst
 f33ed222c53849832896769342b9bdca  DEBIAN/postrm
 fa5ebcc45c264528e57dea5e170e0b9b  DEBIAN/preinst
 e1e9fa91e9b25a249ad90a2a4a47bd34  DEBIAN/pt.po
-ca405a8cd4f6bbfa44496ff1a4c37c49  DEBIAN/control
 8fe39a5443d5fdc12f40a9b2e532cc72  DEBIAN/calamares-settings-biglinux.pot
+b51cac83383e83fd15dc63b0ad5b293b  DEBIAN/en.po
+f2097497682e67484be564224f69733c  DEBIAN/en.mo
+5cfc53f38dd68a199731c744e402801d  DEBIAN/control
 4aef4415f2e976b2cc6f24b877804a57  etc/calamares/branding/biglinux/lang/calamares-biglinux_en.qm
 7eca060e7e6ee51445b36c72d4c170c4  etc/calamares/branding/biglinux/lang/calamares-biglinux_en.ts
 ae91c4c7f802ea8ebcebd47597c9df33  etc/calamares/branding/biglinux/lang/calamares-biglinux_pt_BR.qm
@@ -78,7 +79,7 @@ ecce6aeea42415861020acc04f1151f8  usr/share/efi/ubuntu/fbx64.efi
 58f50177f2db7b6a8d41c826d83804a9  usr/share/efi/ubuntu/shimx64.efi
 78078914109ed6c55b24a15b497883da  usr/share/glib-2.0/schemas/96_calamares-settings-debian.gschema.override
 0198e0f91ed690a0dc9bdced361650ed  usr/share/lintian/overrides/calamares-settings-debian
-867b400e0ac11ee52e484ff6be4c465e  usr/share/locale/en/LC_MESSAGES/calamares-settings-biglinux.mo
+f2097497682e67484be564224f69733c  usr/share/locale/en/LC_MESSAGES/calamares-settings-biglinux.mo
 4b33571863e70190de1cbb2ab59dd459  usr/share/locale/es/LC_MESSAGES/calamares-settings-biglinux.mo
 aef39dba96187b3f6105022c596966dd  usr/share/locale/pt/LC_MESSAGES/calamares-settings-biglinux.mo
 59911c3adb042a4ca5b924be8d919904  usr/share/pixmaps/install-debian.png
