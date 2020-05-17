@@ -1,17 +1,16 @@
-# Portuguese translations for biglinux-livecd package.
-# Copyright (C) 2017 THE biglinux-livecd'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the biglinux-livecd package.
-# Automatically generated, 2017.
+# Copyright (C) 2019 THE calamares-settings-biglinux'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the calamares-settings-biglinux package.
+# Automatically generated, 2019.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: biglinux-livecd\n"
+"Project-Id-Version: calamares-settings-biglinux\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-05-16 20:43-0300\n"
-"PO-Revision-Date: 2020-05-09 23:41-0300\n"
+"PO-Revision-Date: 2020-05-16 22:58-0300\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
-"Language: es\n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,7 +18,7 @@ msgstr ""
 "X-Generator: Poedit 2.3\n"
 
 msgid "Instalador BigLinux"
-msgstr ""
+msgstr "BigLinux installer"
 
 msgid ""
 "A partição btrfs trás diversas melhorias para o sistema, mas\n"
@@ -29,12 +28,20 @@ msgid ""
 "<br>nos passos a seguir utilize o particionamento manual para\n"
 "<br>efetuar sua configuração personalizada."
 msgstr ""
+"The btrfs partition brings several improvements to the system, but\n"
+"<br>\n"
+"is incompatible with some computers, uncheck this option to use the\n"
+"<br> ext4 partition by default, or, in the following steps use manual\n"
+"<br>partitioning to do your custom configuration."
 
 msgid ""
 "Se algum dispositivo do seu computador não foi detectado\n"
 "<br>\n"
 "corretamente pelo kernel generic, utilize o kernel xanmod."
 msgstr ""
+"If any device on your computer has not been detected\n"
+"<br>\n"
+"correctly by the generic kernel, use the xanmod kernel."
 
 msgid ""
 "Esse é o kernel recomendado para a maioria dos computadores,\n"
@@ -43,6 +50,10 @@ msgid ""
 "corretamente,\n"
 "<br>experimente utilizar o kernel xanmod."
 msgstr ""
+"This kernel is recommended for the majority of computers.\n"
+"<br>\n"
+"However, if some device of your computer isn't working correctly,\n"
+"<br>try to use the xanmod kernel."
 
 msgid ""
 "Foi detectada uma placa de vídeo Nvidia nesse computador.<br><br>\n"
@@ -50,36 +61,43 @@ msgid ""
 "driver<br>\n"
 "proprietário, deseja que essa instalação seja feita automaticamente?"
 msgstr ""
+"A Nvidia video card was detected on that computer. <br><br>\n"
+"To get the best performance from your video card, you need to install the "
+"proprietary<br>\n"
+"driver, do you want this installation to be done automatically?"
 
 msgid "Obrigado por escolher o BigLinux $(lsb_release -rs)."
-msgstr ""
+msgstr "Thank you for choosing BigLinux $(lsb_release -rs)."
 
 msgid "Siga os próximos passos para efetuar a instalação no seu computador."
-msgstr ""
+msgstr "Follow the next steps to install on your computer."
 
 msgid ""
 "Em caso de dúvidas sobre as opções abaixo, utilize a configuração padrão e "
 "prossiga com a instalação."
 msgstr ""
+"If in doubt about the options below, use the default configuration and "
+"proceed with the installation."
 
 msgid ""
 "Se precisar de ajuda com a instalação ou uso do sistema utilize nosso fórum:"
 msgstr ""
+"If you need help with the installation or use of the system use our forum:"
 
 msgid "Partição btrfs"
-msgstr ""
+msgstr "Btrfs partition"
 
 msgid "Kernel Generic - $debianVersion"
-msgstr ""
+msgstr "Generic kernel - $debianVersion"
 
 msgid "Kernel Xanmod - $xanmodVersion"
-msgstr ""
+msgstr "Xanmod kernel - $xanmodVersion"
 
 msgid "Kernel em uso no momento: $versionRunning"
-msgstr ""
+msgstr "Kernel in use now: $versionRunning"
 
 msgid "Cancelar"
-msgstr ""
+msgstr "Cancel"
 
 msgid "Próximo"
-msgstr ""
+msgstr "Next"
