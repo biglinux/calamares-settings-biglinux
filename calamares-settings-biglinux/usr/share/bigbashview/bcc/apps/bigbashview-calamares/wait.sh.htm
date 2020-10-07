@@ -34,7 +34,7 @@ fi
 
 
 if [ "$p_debian" != "y" ]; then
-    for i  in  $(dpkg-query -W --showformat='${Package}\n' | grep -e linux.*generic -e linux.*common); do
+    for i  in  $(dpkg-query -W --showformat='${Package}\n' | grep -e linux.*oem -e linux.*common); do
 
         echo "      - '$i'" >> /etc/calamares/modules/packages.conf
 

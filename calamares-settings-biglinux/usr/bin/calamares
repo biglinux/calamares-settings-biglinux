@@ -7,9 +7,12 @@ then
 elif [ "${LANG:0:2}" = "es" ]
 then
     BIGBASHVIEW_LANG="es"
+    sed -i 's|source: "pt/|source: "es/|g' /etc/calamares/branding/biglinux/show.qml
     
 else
     BIGBASHVIEW_LANG="en"
+    sed -i 's|source: "pt/|source: "en/|g' /etc/calamares/branding/biglinux/show.qml
+
 fi
 
 if [ "$(ps -e | grep calamares.distrib)" != "" ]; then

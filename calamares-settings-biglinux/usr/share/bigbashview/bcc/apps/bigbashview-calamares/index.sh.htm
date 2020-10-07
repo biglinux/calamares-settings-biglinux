@@ -216,7 +216,7 @@ tooltip_btrfs=$"A partição btrfs trás diversas melhorias para o sistema, mas
 
 tooltop_xanmod=$"Se algum dispositivo do seu computador não foi detectado
 <br>
-corretamente pelo kernel generic, utilize o kernel xanmod."
+corretamente pelo kernel oem, utilize o kernel xanmod."
 
 tooltip_debian=$"Esse é o kernel recomendado para a maioria dos computadores,
 <br>
@@ -254,7 +254,7 @@ echo '<div id="middle" class="bar">'
 
 
 xanmodVersion="$(ls /boot/vmlinuz-*xanmod* | sed 's|.*vmlinuz-||g')"
-debianVersion="$(ls /boot/vmlinuz-*generic* | sed 's|.*vmlinuz-||g')"
+debianVersion="$(ls /boot/vmlinuz-*oem* | sed 's|.*vmlinuz-||g')"
 
 if [ "$(uname -r | grep xanmod)" != "" ]; then
     xanmodCheked=checked
@@ -300,7 +300,7 @@ echo '<div class="input-field col s6">
     
 echo '<div class="input-field col s6">
       <input name="debian" type="checkbox" id="debian" value="y"' "$debianChecked" '/>
-      <label for="debian" class="tooltipped" data-position="top" data-delay="50" data-tooltip="'" $tooltip_debian "'">' $"Kernel Generic - $debianVersion" '</label>
+      <label for="debian" class="tooltipped" data-position="top" data-delay="50" data-tooltip="'" $tooltip_debian "'">' $"Kernel Oem - $debianVersion" '</label>
     </div>
     <div class="input-field col s6">
       <input name="xanmod" type="checkbox" id="xanmod" value="y"' "$xanmodCheked" '/>
