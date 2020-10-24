@@ -34,7 +34,8 @@ if [ -e "/tmp/biglinux-wait-install" ]; then
 
     umount /dev/sd*
     swapoff /dev/sd*
-    calamares.distrib
+    eatmydata calamares.distrib
+    sync
 
 fi
 
