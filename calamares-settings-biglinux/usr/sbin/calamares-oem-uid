@@ -1,0 +1,19 @@
+#!/bin/sh
+# SPDX-FileCopyrightText: 2018 Harald Sitter <sitter@kde.org>
+# SPDX-License-Identifier: GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
+
+# Hack...
+# Since calamares doesn't allow forcing a uid we'll implcitly move the
+# auto-ranges so the oem user is created at uid 900.
+# This hack is undone in a module once the user was created.
+# This hack allows us to not break with the expecation that the default/first
+# user will be UID 1000.
+
+set -ex
+
+ROOT=$1
+
+cp $ROOT/etc/login.defs $ROOT/etc/login.defs.oem
+
+sed -i 's%UID_MIN.*1000%UID_MIN 900%g' $ROOT/etc/login.defs
+sed -i 's%GID_MIN.*1000%GID_MIN 900%g' $ROOT/etc/login.defs

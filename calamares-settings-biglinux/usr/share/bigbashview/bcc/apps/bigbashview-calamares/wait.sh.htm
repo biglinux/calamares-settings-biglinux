@@ -9,49 +9,49 @@ export TEXTDOMAIN=bigbashview-calamares
 
 touch /tmp/biglinux-wait-install
 
-cp -f /etc/calamares/modules/partition.conf /etc/calamares/modules/partition.conf-bkp
-cp -f /etc/calamares/modules/packages.conf /etc/calamares/modules/packages.conf-bkp
+cp -f /calamares/desktop/modules/partition.conf /calamares/desktop/modules/partition.conf-bkp
+cp -f /calamares/desktop/modules/packages.conf /calamares/desktop/modules/packages.conf-bkp
 
 
 OIFS=$IFS
 IFS=$'\n'
 
 
-if [ "$p_btrfs" = "y" ]; then
-   sed -i 's|ext4|btrfs|g' /etc/calamares/modules/partition.conf
+if [ "$btrfs" = "y" ]; then
+   sed -i 's|ext4|btrfs|g' /calamares/desktop/modules/partition.conf
    else
-   sed -i 's|btrfs|ext4|g' /etc/calamares/modules/partition.conf
+   sed -i 's|btrfs|ext4|g' /calamares/desktop/modules/partition.conf
 fi
 
 
-if [ "$p_xanmod" != "y" ]; then
+if [ "$xanmod" != "y" ]; then
     for i  in  $(dpkg-query -W --showformat='${Package}\n' | grep xanmod | grep -v xanmod-repository); do
 
-        echo "      - '$i'" >> /etc/calamares/modules/packages.conf
+        echo "      - '$i'" >> /calamares/desktop/modules/packages.conf
 
     done
 fi
 
 
-if [ "$p_debian" != "y" ]; then
+if [ "$debian" != "y" ]; then
     for i  in  $(dpkg-query -W --showformat='${Package}\n' | grep -e linux.*generic -e linux.*common); do
 
-        echo "      - '$i'" >> /etc/calamares/modules/packages.conf
+        echo "      - '$i'" >> /calamares/desktop/modules/packages.conf
 
     done
 fi
 
 if [ "$(ls /sys/firmware/efi/efivars/ | grep SecureBoot)" = "" ]; then
-    echo "      - 'grub-efi-amd64-signed'" >> /etc/calamares/modules/packages.conf
-    echo "      - 'shim-signed'" >> /etc/calamares/modules/packages.conf
-    echo "      - 'shim'" >> /etc/calamares/modules/packages.conf
+    echo "      - 'grub-efi-amd64-signed'" >> /calamares/desktop/modules/packages.conf
+    echo "      - 'shim-signed'" >> /calamares/desktop/modules/packages.conf
+    echo "      - 'shim'" >> /calamares/desktop/modules/packages.conf
     sed -i 's|  - bootloader-fix|#  - bootloader-fix|g' /etc/calamares/settings.conf
 fi
 
-if [ "$p_nvidia" = "y" ]; then
+if [ "$nvidia" = "y" ]; then
 
-    echo "  - install:" >> /etc/calamares/modules/packages.conf
-    echo "      - '$(nvidia-detector)'" >> /etc/calamares/modules/packages.conf
+    echo "  - install:" >> /calamares/desktop/modules/packages.conf
+    echo "      - '$(nvidia-detector)'" >> /calamares/desktop/modules/packages.conf
 fi
 
 

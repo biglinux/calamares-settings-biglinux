@@ -1,0 +1,34 @@
+#!/bin/sh
+# SPDX-FileCopyrightText: 2018 Harald Sitter <sitter@kde.org>
+# SPDX-License-Identifier: GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
+
+set -ex
+
+# This is part of oem-config-firstboot. Since we run cala through the oem user
+# there is more cleanup we need to do after the oem configuration is done though
+
+# Remove the temporary OEM configuration user, if possible
+# and desired.
+# RET="$(echo GET oem-config/remove | debconf-communicate)"
+# if [ "${RET#* }" = true ] && getent passwd oem >/dev/null; then
+  pkill -u oem || true
+  userdel --force --remove oem || true
+# fi
+/bin/systemctl set-default graphical.target || true
+/bin/systemctl disable oem-config.service || true
+/bin/systemctl disable oem-config.target || true
+rm -f /lib/systemd/system/oem-config.* || true
+# /bin/systemctl --no-block isolate graphical.target || true
+
+# Additions for neon
+
+/bin/systemctl disable calamares-sddm.service || true
+rm -f /lib/systemd/system/calamares-sddm.service
+
+/bin/systemctl disable oem-cleanup.service || true
+rm -f /lib/systemd/system/oem-cleanup.service
+
+rm -rf /usr/bin/calmares-oem
+rm -rf /usr/share/calmares-oem
+
+rm /etc/sudoers.d/10-oem-*

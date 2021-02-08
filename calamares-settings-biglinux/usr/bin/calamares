@@ -1,4 +1,17 @@
 #!/bin/bash
+# SPDX-FileCopyrightText: 2018-2019 Harald Sitter <sitter@kde.org>
+# SPDX-License-Identifier: GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
+
+# Force Plasma themeing
+export QT_PLATFORM_PLUGIN=kde
+export KDE_FULL_SESSION=TRUE
+export KDE_SESSION_VERSION=5
+export QT_QPA_PLATFORMTHEME=kde
+
+export XDG_DATA_DIRS=/calamares/desktop:$XDG_DATA_DIRS:/usr/share
+export XDG_CONFIG_DIRS=/calamares/desktop:$XDG_CONFIG_DIRS:/etc/xdg
+
+swapoff -a || true
 
 if [ "${LANG:0:2}" = "pt" ]
 then
@@ -34,8 +47,7 @@ if [ -e "/tmp/biglinux-wait-install" ]; then
 
     umount /dev/sd*
     swapoff /dev/sd*
-    eatmydata calamares.distrib
+    eatmydata calamares.distrib --xdg-config "$@"
     sync
 
 fi
-

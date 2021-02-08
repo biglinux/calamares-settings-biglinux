@@ -11,9 +11,7 @@ mkdir -p "$1/EFI/biglinux-shim"
 #     fi
 # 
 # fi
-#Chromium remember optimization
-cp -f "/home/biglinux/.config/chromium-optimize" "$1/../../etc/skel/.config/chromium-optimize"
-chmod 644  "$1/../../etc/skel/.config/chromium-optimize"
+
 
 # cp -f "/usr/share/efi/ubuntu/fbx64.efi" "$1/EFI/ubuntu/fbx64.efi"
 # cp -f "/usr/share/efi/ubuntu/grubx64.efi" "$1/EFI/ubuntu/grubx64.efi"
@@ -25,15 +23,13 @@ cp -f "/usr/share/efi/biglinux-shim/grubx64.efi" "$1/EFI/biglinux-shim/grubx64.e
 cp -f "/usr/share/efi/biglinux-shim/mmx64.efi" "$1/EFI/biglinux-shim/mmx64.efi"
 cp -f "/usr/share/efi/biglinux-shim/shimx64.efi" "$1/EFI/biglinux-shim/shimx64.efi"
 
-
-
 # cp -f "$1/EFI/BigLinux/grub.cfg" "$1/EFI/ubuntu/grub.cfg"
 cp -f "$1/EFI/BigLinux/grub.cfg" "$1/EFI/biglinux-shim/grub.cfg"
 
 sed -i 's|splashquiet|splash quiet|g' "$1/../../etc/default/grub"
 
 partition="$(findmnt -n -o SOURCE --target $1)"
-device="$(echo "$partition" | sed 's|[0-9]||g')"
+device="$(lsblk -dpno pkname "$partition")"
 num_device="$(echo "$partition" | sed 's|.*[a-z]||g')"
 
 if [ "$(find /sys/firmware/efi/efivars/ -name SecureBoot-*)" != "" ]; then

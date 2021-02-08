@@ -1,0 +1,21 @@
+#!/bin/sh
+# SPDX-FileCopyrightText: 2018 Harald Sitter <sitter@kde.org>
+# SPDX-License-Identifier: GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
+
+# Hack...
+# Undo calamares-oem-uid
+
+set -ex
+
+ROOT=$1
+
+mv $ROOT/etc/login.defs.oem $ROOT/etc/login.defs
+
+mkdir -p $ROOT/home/oem/Desktop
+ln -s ../../../calamares/oem-prepare/oem-prepare.desktop $ROOT/home/oem/Desktop/oem-prepare.desktop
+# Make sure the oem user (900) can clean up this file!
+chown -Rv 900 $ROOT/home/oem/Desktop/
+
+kwriteconfig5 --file $ROOT/etc/sddm.conf --group Autologin --key Relogin --type bool true
+kwriteconfig5 --file $ROOT/etc/sddm.conf --group Autologin --key User oem
+kwriteconfig5 --file $ROOT/etc/sddm.conf --group Autologin --key Session plasma.desktop

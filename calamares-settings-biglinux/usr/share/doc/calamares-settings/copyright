@@ -1,0 +1,9 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: calamares-settings
+Source: https://invent.kde.org/neon/neon/calamares-settings
+
+Files: debian/*
+Copyright: 2014-2016 Rohan Garg <garg@kde.org>
+Copyright: 2017 Jonathan Riddell <jr@jriddell.org>
+Copyright: 2018-2019 Harald Sitter <sitter@kde.org>
+License: GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL

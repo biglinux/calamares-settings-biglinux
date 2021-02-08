@@ -1,0 +1,31 @@
+#!/bin/sh
+# SPDX-FileCopyrightText: 2020 Harald Sitter <sitter@kde.org>
+# SPDX-License-Identifier: GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
+
+# Simplified cryptsetup heavily relying on cryptsetup-initramfs.
+# https://github.com/calamares/calamares/wiki/Deploy-LUKS
+# https://help.ubuntu.com/community/Full_Disk_Encryption_Howto_2019
+
+set -ex
+
+if [ ! -f /crypto_keyfile.bin ]; then
+  # noop when not doing an ecrypted installation
+  exit 0
+fi
+
+# Replaces grubcfg by simply opting into disk encryption. Since calamares only supports
+# full disk encryption (unlike ubuntu by default) we need to let grub be encrypted as well.
+echo 'GRUB_ENABLE_CRYPTODISK=y' > /etc/default/grub.d/00_calamares.cfg
+
+# path is hardcoed in luksbootkeyfile module of calamares
+# NB: this modifies an installed file and will make debconf angry. There's nothing
+#   to be done about this unfortunately since cryptosetup-initramfs sources this file
+#   and makes no attempts at supporting a foo.d/ scheme. Also it explicitly unsets
+#   the variable before trying to source meaning we cannot seed it through the environment
+#   or something either.
+echo '# This enables your disk encryption. Do not lose this!' >> /etc/cryptsetup-initramfs/conf-hook
+echo 'KEYFILE_PATTERN=/crypto_keyfile.bin' >> /etc/cryptsetup-initramfs/conf-hook
+
+# Since the initrd contains the keyfile in a full disk encryption setup it must not
+# be world readable. This is also set by calamares, but better safe than sorry I should think.
+echo 'UMASK=0077' > /etc/initramfs-tools/conf.d/00_calamares-neon-hardening.conf
